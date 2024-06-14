@@ -1,0 +1,405 @@
+{
+    "download": {
+        "description": "Download",
+        "items": [
+            {
+                "description": "Maximum connections for one download",
+                "name": "chunks",
+                "type": "int",
+                "value": "3"
+            },
+            {
+                "description": "Maximum parallel downloads",
+                "name": "max_downloads",
+                "type": "int",
+                "value": "3"
+            },
+            {
+                "description": "Maximum download speed in KiB/s",
+                "name": "max_speed",
+                "type": "int",
+                "value": "-1"
+            },
+            {
+                "description": "Limit download speed",
+                "name": "limit_speed",
+                "type": "bool",
+                "value": "False"
+            },
+            {
+                "description": "Download interface to bind (IP Address)",
+                "name": "interface",
+                "type": "ip",
+                "value": ""
+            },
+            {
+                "description": "Allow IPv6",
+                "name": "ipv6",
+                "type": "bool",
+                "value": "False"
+            },
+            {
+                "description": "Skip already existing files",
+                "name": "skip_existing",
+                "type": "bool",
+                "value": "False"
+            },
+            {
+                "description": "Start time",
+                "name": "start_time",
+                "type": "time",
+                "value": "0:00"
+            },
+            {
+                "description": "End time",
+                "name": "end_time",
+                "type": "time",
+                "value": "0:00"
+            }
+        ],
+        "name": "download",
+        "outline": null
+    },
+    "general": {
+        "description": "General",
+        "items": [
+            {
+                "description": "Language",
+                "name": "language",
+                "type": "en;",
+                "value": "en"
+            },
+            {
+                "description": "Download folder",
+                "name": "storage_folder",
+                "type": "folder",
+                "value": "/mnt/Shared/Media/Downloads"
+            },
+            {
+                "description": "Debug mode",
+                "name": "debug_mode",
+                "type": "bool",
+                "value": "True"
+            },
+            {
+                "description": "Debug level",
+                "name": "debug_level",
+                "type": "debug;trace;stack",
+                "value": "trace"
+            },
+            {
+                "description": "Minimum free space in MiB",
+                "name": "min_free_space",
+                "type": "int",
+                "value": "1024"
+            },
+            {
+                "description": "Create folder for each package",
+                "name": "folder_per_package",
+                "type": "bool",
+                "value": "True"
+            },
+            {
+                "description": "Verify SSL certificates",
+                "name": "ssl_verify",
+                "type": "bool",
+                "value": "True"
+            }
+        ],
+        "name": "general",
+        "outline": null
+    },
+    "log": {
+        "description": "Log",
+        "items": [
+            {
+                "description": "Print log to console",
+                "name": "console",
+                "type": "bool",
+                "value": "True"
+            },
+            {
+                "description": "Colorize console",
+                "name": "console_color",
+                "type": "bool",
+                "value": "False"
+            },
+            {
+                "description": "Sent log to syslog",
+                "name": "syslog",
+                "type": "bool",
+                "value": "False"
+            },
+            {
+                "description": "Syslog location",
+                "name": "syslog_location",
+                "type": "local;remote",
+                "value": "local"
+            },
+            {
+                "description": "Syslog local folder",
+                "name": "syslog_folder",
+                "type": "folder",
+                "value": ""
+            },
+            {
+                "description": "Syslog remote IP address",
+                "name": "syslog_host",
+                "type": "ip",
+                "value": "localhost"
+            },
+            {
+                "description": "Syslog remote port",
+                "name": "syslog_port",
+                "type": "int",
+                "value": "514"
+            },
+            {
+                "description": "Save log to file",
+                "name": "filelog",
+                "type": "bool",
+                "value": "True"
+            },
+            {
+                "description": "Maximum file size (in KiB)",
+                "name": "filelog_size",
+                "type": "int",
+                "value": "5120"
+            },
+            {
+                "description": "Log file folder",
+                "name": "filelog_folder",
+                "type": "folder",
+                "value": ""
+            },
+            {
+                "description": "Maximum log files",
+                "name": "filelog_entries",
+                "type": "int",
+                "value": "10"
+            },
+            {
+                "description": "Log rotate",
+                "name": "filelog_rotate",
+                "type": "bool",
+                "value": "True"
+            }
+        ],
+        "name": "log",
+        "outline": null
+    },
+    "permission": {
+        "description": "Permissions",
+        "items": [
+            {
+                "description": "Change user of running process",
+                "name": "change_user",
+                "type": "bool",
+                "value": "False"
+            },
+            {
+                "description": "Username for ownership",
+                "name": "user",
+                "type": "str",
+                "value": "nobody"
+            },
+            {
+                "description": "Permission mode for created folders",
+                "name": "folder",
+                "type": "str",
+                "value": "0770"
+            },
+            {
+                "description": "Change permissions of downloads",
+                "name": "change_file",
+                "type": "bool",
+                "value": "False"
+            },
+            {
+                "description": "Permission mode for downloaded files",
+                "name": "file",
+                "type": "str",
+                "value": "0770"
+            },
+            {
+                "description": "Change group of running process",
+                "name": "change_group",
+                "type": "bool",
+                "value": "False"
+            },
+            {
+                "description": "Groupname for ownership",
+                "name": "group",
+                "type": "str",
+                "value": "shared"
+            },
+            {
+                "description": "Change ownership of downloads",
+                "name": "change_dl",
+                "type": "bool",
+                "value": "False"
+            }
+        ],
+        "name": "permission",
+        "outline": null
+    },
+    "proxy": {
+        "description": "Proxy",
+        "items": [
+            {
+                "description": "Activated",
+                "name": "enabled",
+                "type": "bool",
+                "value": "False"
+            },
+            {
+                "description": "IP address",
+                "name": "host",
+                "type": "ip",
+                "value": "localhost"
+            },
+            {
+                "description": "Port",
+                "name": "port",
+                "type": "int",
+                "value": "7070"
+            },
+            {
+                "description": "Protocol",
+                "name": "type",
+                "type": "http;https;socks4;socks5",
+                "value": "http"
+            },
+            {
+                "description": "Enable DNS resolution through SOCKS proxy",
+                "name": "socks_resolve_dns",
+                "type": "bool",
+                "value": "False"
+            },
+            {
+                "description": "Username",
+                "name": "username",
+                "type": "str",
+                "value": ""
+            },
+            {
+                "description": "Password",
+                "name": "password",
+                "type": "password",
+                "value": ""
+            }
+        ],
+        "name": "proxy",
+        "outline": null
+    },
+    "reconnect": {
+        "description": "Reconnection",
+        "items": [
+            {
+                "description": "Activated",
+                "name": "enabled",
+                "type": "bool",
+                "value": "True"
+            },
+            {
+                "description": "Script",
+                "name": "script",
+                "type": "str",
+                "value": ""
+            },
+            {
+                "description": "Start time",
+                "name": "start_time",
+                "type": "time",
+                "value": "0:00"
+            },
+            {
+                "description": "End time",
+                "name": "end_time",
+                "type": "time",
+                "value": "0:00"
+            }
+        ],
+        "name": "reconnect",
+        "outline": null
+    },
+    "webui": {
+        "description": "Web Interface",
+        "items": [
+            {
+                "description": "Activated",
+                "name": "enabled",
+                "type": "bool",
+                "value": "True"
+            },
+            {
+                "description": "Use HTTPS",
+                "name": "use_ssl",
+                "type": "bool",
+                "value": "False"
+            },
+            {
+                "description": "Development mode",
+                "name": "develop",
+                "type": "bool",
+                "value": "False"
+            },
+            {
+                "description": "SSL Certificate",
+                "name": "ssl_certfile",
+                "type": "file",
+                "value": "/root/.pyload/data/ssl.crt"
+            },
+            {
+                "description": "SSL Key",
+                "name": "ssl_keyfile",
+                "type": "file",
+                "value": "/root/.pyload/data/ssl.key"
+            },
+            {
+                "description": "CA's intermediate certificate bundle (optional)",
+                "name": "ssl_certchain",
+                "type": "file",
+                "value": ""
+            },
+            {
+                "description": "IP address",
+                "name": "host",
+                "type": "ip",
+                "value": "10.0.163.75"
+            },
+            {
+                "description": "Port",
+                "name": "port",
+                "type": "int",
+                "value": "8000"
+            },
+            {
+                "description": "Theme",
+                "name": "theme",
+                "type": "Default;modern;pyplex",
+                "value": "pyplex"
+            },
+            {
+                "description": "Skip login if single user",
+                "name": "autologin",
+                "type": "bool",
+                "value": "False"
+            },
+            {
+                "description": "Path prefix",
+                "name": "prefix",
+                "type": "str",
+                "value": ""
+            },
+            {
+                "description": "Session lifetime (minutes)",
+                "name": "session_lifetime",
+                "type": "int",
+                "value": "44640"
+            }
+        ],
+        "name": "webui",
+        "outline": null
+    }
+}

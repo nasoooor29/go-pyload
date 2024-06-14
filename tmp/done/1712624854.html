@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" type="text/css" href="/_themes/pyplex/vendor/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/_themes/pyplex/vendor/jQuery/jQuery%20UI/jquery-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/_themes/pyplex/vendor/mdtoast/css/mdtoast.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/_themes/pyplex/css/base.css" />
+
+    <link rel="icon" href="/_themes/pyplex/img/favicon.ico"/>
+
+<style type="text/css">
+.ui-icon,
+.ui-widget-content .ui-icon {
+  background-image: url("/_themes/pyplex/img/ui-icons_444444_256x240.png");
+}
+
+#goto_top.affix-top {
+  position: absolute;
+  bottom: -82px;
+  left: 10px;
+}
+
+#goto_top.affix {
+  position: fixed;
+  bottom: 18px;
+  left: 10px;
+}
+</style>
+
+<title>Sorry, something went wrong... :(</title>
+
+
+
+
+<script>
+  // Prevent Flash of Unstyled Content (FOUC) in Firefox
+  // see: https://bugzilla.mozilla.org/show_bug.cgi?id=1404468
+  // see: https://stackoverflow.com/a/64158043
+  let FF_FOUC_FIX;
+</script>
+</head>
+
+<body>
+
+
+
+<nav id="sticky-nav" class="navbar navbar-inverse navoben navbar-fixed-top hidden-sm hidden-xs" style="display: none; border-bottom: 1px solid rgba(255,255,255,.15); box-shadow: 0 1px 6px 0 rgba(111,114,125,0.28); min-height: 45px;">
+  <ul  class="nav navbar-nav">
+    <li ondragstart="return false;" 
+  >
+      <a href="/dashboard" title="Dashboard"><span class="glyphicon glyphicon-home"></span></a>
+    </li>
+    <li ondragstart="return false;" 
+  >
+      <a href="/queue" title="Queue"><span class="glyphicon glyphicon-tasks"></span></a>
+    </li>
+    <li ondragstart="return false;" 
+  >
+      <a href="/collector" title="Packages"><span class="glyphicon glyphicon-magnet"></span></a>
+    </li>
+    <li ondragstart="return false;" 
+  >
+      <a href="/files" title="Files"><span class="glyphicon glyphicon-file"></span></a>
+    </li>
+    <li ondragstart="return false;" 
+  >
+      <a href="/logs" title="Logs"><span class="glyphicon glyphicon-list-alt"></span></a>
+    </li>
+    <li ondragstart="return false;" 
+  class="right">
+      <a href="/settings"  title="Settings"><span class="glyphicon glyphicon-cog"></span></a>
+    </li>
+	<li class="divider-vertical"></li>
+	<li ondragstart="return false;">
+		<a role="button" id="action_add1" data-toggle="modal" data-target="#add_box" class="action_add" title="Add Package"><span class="glyphicon glyphicon-plus"></span></a>
+	</li>
+  </ul>
+  <span id="cap_info1" class="cap_info col-xs-12 col-sm-auto" style="display: none;margin-top:-2px; height: 15px;">
+      <button id="action_cap1" class="btn btn-default navbar-btn col-xs-12 col-sm-auto" data-toggle="modal" data-target="#cap_box" data-backdrop="static"><span  class="glyphicon glyphicon-barcode"></span> Captcha waiting</button>
+  </span>
+  <ul class="nav navbar-nav navbar-right">
+    <li id="load-indicator1" class="load-indicator" style="opacity: 0; display: block; margin-top: 11px; margin-right: 35px;">
+       <img src="/_themes/pyplex/img/ajax-loader.gif" alt="" style="padding-right: 5px"/>
+    </li>
+  </ul>
+</nav>
+<div id="head-panel">
+  <div id="head-search-and-login">
+    
+      
+        
+        
+      
+    
+  </div>
+
+  <nav class="navbar navbar-inverse navoben">
+    <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="#"><img id="head-logo" src="/_themes/pyplex/img/pyload-banner.png" alt="pyLoad" style="height:30px;"/></a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+        
+         
+          <li ondragstart="return false;" 
+  >
+              <a href="/dashboard" title=""><span class="glyphicon glyphicon-home"></span><span class="hidden-sm"> Dashboard</span></a>
+          </li>
+          <li ondragstart="return false;" 
+  >
+              <a href="/queue" title=""><span class="glyphicon glyphicon-tasks"></span><span class="hidden-sm"> Queue</span></a>
+          </li>
+          <li ondragstart="return false;" 
+  >
+              <a href="/collector" title=""><span class="glyphicon glyphicon-magnet"></span><span class="hidden-sm"> Packages</span></a>
+          </li>
+          <li ondragstart="return false;" 
+  >
+              <a href="/files" title=""> <span class="glyphicon glyphicon-file"></span><span class="hidden-sm"> Files</span></a>
+          </li>
+    
+    
+    
+          <li ondragstart="return false;" 
+  >
+              <a href="/logs" title=""><span class="glyphicon glyphicon-list-alt"></span><span class="hidden-sm"> Logs</span></a>
+          </li>
+          <li ondragstart="return false;" 
+  class="right">
+              <a href="/settings"  title=""><span class="glyphicon glyphicon-cog"></span><span class="hidden-sm"> Settings</span></a>
+          </li>
+         
+        
+
+        </ul>
+        
+          <ul class="nav navbar-nav navbar-right">
+            <li><span class="navbar-text"><span class="glyphicon glyphicon-user" title="pyload></span><span class="hidden-sm hidden-md"> pyload</span></span></li>
+            <li><a href="/logout" class="action logout" rel="nofollow"><span class="glyphicon glyphicon-log-out"></span><span class="hidden-sm hidden-md">  Logout</span></a></li>
+            <li ondragstart="return false;" 
+  ><a href="/info"  class="action info" rel="nofollow"><span class="glyphicon glyphicon-info-sign"></span><span class="hidden-sm hidden-md">  Info</span></a></li>
+          </ul>
+        
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div style="clear:both;"></div>
+</div>
+
+<div class="btn-toolbar" role="toolbar" aria-label="...">
+
+    <div class="btn-group btn-group-sm col-xs-12 col-sm-auto" role="group" aria-label="..." style="float:right;">
+        <button class="btn btn-dark col-xs-3 col-sm-auto"><span class="hidden-sm">Running:</span><span class="glyphicon glyphicon-download hidden-xs hidden-md hidden-lg"></span> <span id="time"  class="label label-success">on</span></button>
+        <button type="button" class="btn btn-dark col-xs-3 col-sm-auto"><span class="hidden-sm">Reconnect:</span><span class="glyphicon glyphicon-refresh hidden-xs hidden-md hidden-lg"></span> <span id="reconnect" class="label label-danger">off</span></button>
+        <button type="button" class="btn btn-dark col-xs-3 col-sm-auto"><span class="action backlink"><span class="hidden-xs hidden-sm">Speed: </span><b id="speed">0</b></span></button>
+        <span class="btn btn-dark col-xs-3 col-sm-auto"><span class="action cog">Queue: <b id="actives" title="Active">0</b> / <b id="actives_from" title="Queued">0</b> | <b id="actives_total" title="Total">4</b></span></span>
+    </div>
+
+
+
+    <!--<div class="btn-group btn-group-sm col-xs-12 col-sm-3 col-md-3 col-lg-3" role="group" aria-label="...">-->
+    <div class="btn-group btn-group-sm" style="margin-left: 20px; margin-right: 20px;" role="group" aria-label="...">
+        <button id="action_play" class="btn btn-danger" href="#" title="Resume Queue"><span class="glyphicon glyphicon-play"></span>&nbsp;</button>
+        <button id="action_stop" type="button" class="btn btn-danger" title="Pause Queue"><span class="glyphicon glyphicon-pause"></span>&nbsp;</button>
+        <button id="action_cancel" type="button" class="btn btn-danger" title="Abort Downloads"><span class="glyphicon glyphicon-stop"></span>&nbsp;</button>
+        <button id="action_add2" data-toggle="modal" data-target="#add_box" type="button" class="action_add btn btn-danger" title="Add Package"><span class="glyphicon glyphicon-plus"></span>&nbsp;</button>
+    </div>
+
+
+
+
+
+<span id="cap_info2" class="cap_info col-xs-12 col-sm-auto" style="display: none;margin-top:-2px;">
+    <button id="action_cap2" class="btn btn-default col-xs-12 col-sm-auto" data-toggle="modal" data-target="#cap_box" data-backdrop="static"><span  class="glyphicon glyphicon-barcode"></span> Captcha waiting</button>
+</span>
+</div>
+
+<div id="body-wrapper" class="dokuwiki">
+    <div id="content" style="width: 99%; padding-left: 10px; padding-right: 10px;" lang="en" dir="ltr">
+      <div style="display: flex;justify-content: space-between;">
+
+
+
+        <hr>
+        <div>
+          
+          
+          
+              <p><b>Error 500: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.</b></p>
+          
+              <p><b>Traceback (most recent call last):</b></p>
+          
+              <p><b>  File &#34;/usr/local/lib/python3.11/dist-packages/flask/app.py&#34;, line 880, in full_dispatch_request</b></p>
+          
+              <p><b>    rv = self.dispatch_request()</b></p>
+          
+              <p><b>         ^^^^^^^^^^^^^^^^^^^^^^^</b></p>
+          
+              <p><b>  File &#34;/usr/local/lib/python3.11/dist-packages/flask/app.py&#34;, line 865, in dispatch_request</b></p>
+          
+              <p><b>    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]</b></p>
+          
+              <p><b>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</b></p>
+          
+              <p><b>  File &#34;/usr/local/lib/python3.11/dist-packages/pyload/webui/app/blueprints/api_blueprint.py&#34;, line 83, in login</b></p>
+          
+              <p><b>    user = flask.request.form[&#34;username&#34;]</b></p>
+          
+              <p><b>           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^</b></p>
+          
+              <p><b>  File &#34;/usr/local/lib/python3.11/dist-packages/werkzeug/datastructures/structures.py&#34;, line 196, in __getitem__</b></p>
+          
+              <p><b>    raise exceptions.BadRequestKeyError(key)</b></p>
+          
+              <p><b>werkzeug.exceptions.BadRequestKeyError: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.</b></p>
+          
+              <p><b></b></p>
+          
+        </div>
+        <div id="load-indicator2" class="load-indicator" style="opacity: 0; margin-top: 5px;">
+             <img src="/_themes/pyplex/img/ajax-loader.gif" alt="" style="padding-right: 5px"/>
+        </div>
+      </div>
+
+      
+      
+    </div>
+</div>
+
+<hr style="clear: both;" />
+<div id="foot" class="navbar navbar-static-bottom navbar-inverse" style="width: 100%; text-align:center;">&copy; 2008-2024 pyLoad team</div>
+
+<div id="goto_top" class="btn-dark hidden" style="position: fixed; width: 25px; height: 25px;background-color: #eeeeee; color: #282828; opacity: 0.5; cursor: pointer; z-index: 10; border-radius: 5px; display: block;" title="Back to top">
+    <div class="glyphicon glyphicon-chevron-up" style="padding-top: 5px; padding-left: 6px; opacity: 0.5;"></div>
+</div>
+
+<div style="display: none;">
+    
+    
+</div>
+
+
+
+<div id="add_box" class="modal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content" id="modal-content">
+      <div class="modal-header bg-info navbar-inverse text-center" style="cursor: move; padding: 5px">Add Package</div>
+      <div class="modal-body text-left" style="cursor: move;">
+        <div id="cap_title">Paste your links or upload a container.</div>
+        <form id="add_form" class="form-group" action="/json/add_package" method="POST" enctype="multipart/form-data" style="margin-bottom: 40px;">
+          <div class="form-group">
+            <label for="add_name">Name</label>
+            <input id="add_name" class="form-control" name="add_name" type="text"/>
+            <p class="help-block">The name of the package</p>
+          </div>
+          <div class="form-group">
+            <label for="add_links">Links</label>
+            <a onclick="parseUri()">
+              <span class="glyphicon glyphicon-filter" title="Filter urls" style="color: #eee !important;float: right; font-size: 10px; line-height: 20px; cursor: pointer;"></span>
+            </a>
+            <textarea class="form-control" rows="4" wrap="soft" style="resize: none; width: 100%" name="add_links" id="add_links"></textarea>
+            <p class="help-block">Add a list of links</p>
+          </div>
+          <div class="form-group">
+            <label for="add_password">Password</label>
+            <input id="add_password" class="form-control" name="add_password" type="text">
+            <p class="help-block">Type the package password</p>
+          </div>
+          <div class="form-group" style="white-space: nowrap; overflow: hidden;">
+            <label for="add_file">Upload a container</label>
+            <p>
+            <div class="text-ellipsis">
+              <label class="btn btn-warning" for="add_file" style="padding: 0 25px; margin-right: 5px;">
+                <input name="add_file" id="add_file" type="file" style="display: none;" onchange="$('#upload-file-info').text(this.files[0].name);"/>File
+              </label>
+              <span id="upload-file-info">not available</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="add_dest">Destination </label>
+            <div class="radio" style="display: inline-block">
+              <label><input type="radio" name="add_dest" id="add_dest" value="1" checked="checked" style="padding: 10px 10px;"/>Queue</label>
+            </div>
+            <div class="radio" style="display: inline-block">
+              <label><input type="radio" name="add_dest" id="add_dest2" value="0" style="padding: 10px 10px;"/>Packages</label>
+            </div>
+          </div>
+          <button class="btn btn-success pull-right" id="add_submit" type="submit" style="margin-left: 5px;">Add Package</button>
+          <button class="btn btn-warning pull-right" data-dismiss="modal" id="add_reset" type="reset">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Captcha box -->
+
+<div id="cap_box" class="modal" role="dialog" style="z-index: 99">
+  <div class="modal-dialog modal-sm" style="display: flex; justify-content: center;">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header bg-info navbar-inverse text-center" style="padding: 5px" >Captcha reading</div>
+      <div class="modal-body text-left">
+        <div id="cap_title"></div>
+        <form id="cap_form" class="form-group" action="/json/set_captcha" method="POST" enctype="multipart/form-data" onsubmit="return false;" autocomplete="off" style="margin-bottom: 40px;">
+          <input id="cap_id" name="cap_id" type="hidden" value=""/>
+          <div id="cap_textual" style="display: none;">
+            <div class="form-group">
+              <label for="cap_textual_img">Captcha</label>
+              <div><img id="cap_textual_img" class="img-responsive" style="border: 1px solid #bbb; padding: 3px 3px 3px 3px;" src=""></div>
+            </div>
+            <div class="form-group">
+              <label for="cap_result">Text</label>
+              <input class="form-control" id="cap_result" name="cap_result" type="text" size="20" />
+              <div class="small">Input the text on the captcha.</div>
+            </div>
+          </div>
+          <div id="cap_positional" style="display: none; text-align: center">
+            <img id="cap_positional_img" src="" style="margin: 10px; cursor: pointer;">
+            <div class="small">Please click on the right captcha position.</div>
+          </div>
+          <div id="cap_interactive" style="display: none; text-align: center; padding-bottom: 15px;">
+            <div id="cap_iframe_clipping" style="overflow: hidden;">
+              <iframe src="" id="cap_interactive_iframe" frameborder="0" scrolling="no" sandbox="allow-scripts allow-forms allow-same-origin" style="position: relative; height: 100%; width: 100%; overflow: hidden; border: 0;">
+                <p>Your browser does not support iframes.</p>
+              </iframe>
+            </div>
+            <div id="cap_interactive_loading">
+              <p style="white-space: nowrap;">The captcha may take a few seconds to load.</p></p>
+              <p>Note: to solve this interactive captcha<br>
+              Please install the <a href='https://tampermonkey.net/' target='_blank'>Tampermonkey</a> add-on in your browser and add the <a href="/static/js/captcha-interactive.user.js">pyload userscript</a>.</p>
+            </div>
+            <div id="cap_invisible_loading">
+              <p style="white-space: nowrap;">Invisible captcha is in background progress,<br>
+              <p style="white-space: nowrap;">this window will automatically close, please wait.</p><br>
+              <p>Note: to solve this interactive captcha<br>
+              Please install the <a href='https://tampermonkey.net/' target='_blank'>Tampermonkey</a> add-on in your browser and add the <a href="/static/js/captcha-interactive.user.js">pyload userscript</a>.</p>
+            </div>
+          </div>
+          <button class="btn btn-success pull-right" id="cap_submit" type="submit" style="margin-left: 5px;">Submit</button>
+          <div class="btn btn-warning pull-right" data-dismiss="modal" id="cap_reset" >Close</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<noscript><h1>Enable JavaScript to use the WebUI.</h1></noscript>
+
+<script type="text/javascript" src="/_themes/pyplex/vendor/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="/_themes/pyplex/vendor/jQuery/jQuery%20UI/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/_themes/pyplex/vendor/mdtoast/js/mdtoast.min.js"></script>
+<script type="text/javascript" src="/_themes/pyplex/vendor/Bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/render/js/base.js" nopoll=></script>
+
+
+
+
+</body>
+</html>

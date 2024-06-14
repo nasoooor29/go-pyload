@@ -1,0 +1,342 @@
+{
+    "general": {
+        "desc": "General",
+        "language": {
+            "desc": "Language",
+            "type": "en;",
+            "value": "en",
+            "list": [
+                "en",
+                ""
+            ]
+        },
+        "storage_folder": {
+            "desc": "Download folder",
+            "type": "folder",
+            "value": "/mnt/Shared/Media/Downloads"
+        },
+        "debug_mode": {
+            "desc": "Debug mode",
+            "type": "bool",
+            "value": true
+        },
+        "debug_level": {
+            "desc": "Debug level",
+            "type": "debug;trace;stack",
+            "value": "trace",
+            "list": [
+                "debug",
+                "trace",
+                "stack"
+            ]
+        },
+        "min_free_space": {
+            "desc": "Minimum free space in MiB",
+            "type": "int",
+            "value": 1024
+        },
+        "folder_per_package": {
+            "desc": "Create folder for each package",
+            "type": "bool",
+            "value": true
+        },
+        "ssl_verify": {
+            "desc": "Verify SSL certificates",
+            "type": "bool",
+            "value": true
+        }
+    },
+    "permission": {
+        "desc": "Permissions",
+        "change_user": {
+            "desc": "Change user of running process",
+            "type": "bool",
+            "value": false
+        },
+        "user": {
+            "desc": "Username for ownership",
+            "type": "str",
+            "value": "nobody"
+        },
+        "folder": {
+            "desc": "Permission mode for created folders",
+            "type": "str",
+            "value": "0770"
+        },
+        "change_file": {
+            "desc": "Change permissions of downloads",
+            "type": "bool",
+            "value": false
+        },
+        "file": {
+            "desc": "Permission mode for downloaded files",
+            "type": "str",
+            "value": "0770"
+        },
+        "change_group": {
+            "desc": "Change group of running process",
+            "type": "bool",
+            "value": false
+        },
+        "group": {
+            "desc": "Groupname for ownership",
+            "type": "str",
+            "value": "shared"
+        },
+        "change_dl": {
+            "desc": "Change ownership of downloads",
+            "type": "bool",
+            "value": false
+        }
+    },
+    "download": {
+        "desc": "Download",
+        "chunks": {
+            "desc": "Maximum connections for one download",
+            "type": "int",
+            "value": 3
+        },
+        "max_downloads": {
+            "desc": "Maximum parallel downloads",
+            "type": "int",
+            "value": 3
+        },
+        "max_speed": {
+            "desc": "Maximum download speed in KiB/s",
+            "type": "int",
+            "value": -1
+        },
+        "limit_speed": {
+            "desc": "Limit download speed",
+            "type": "bool",
+            "value": false
+        },
+        "interface": {
+            "desc": "Download interface to bind (IP Address)",
+            "type": "ip",
+            "value": ""
+        },
+        "ipv6": {
+            "desc": "Allow IPv6",
+            "type": "bool",
+            "value": false
+        },
+        "skip_existing": {
+            "desc": "Skip already existing files",
+            "type": "bool",
+            "value": false
+        },
+        "start_time": {
+            "desc": "Start time",
+            "type": "time",
+            "value": "0:00"
+        },
+        "end_time": {
+            "desc": "End time",
+            "type": "time",
+            "value": "0:00"
+        }
+    },
+    "reconnect": {
+        "desc": "Reconnection",
+        "enabled": {
+            "desc": "Activated",
+            "type": "bool",
+            "value": false
+        },
+        "script": {
+            "desc": "Script",
+            "type": "str",
+            "value": ""
+        },
+        "start_time": {
+            "desc": "Start time",
+            "type": "time",
+            "value": "0:00"
+        },
+        "end_time": {
+            "desc": "End time",
+            "type": "time",
+            "value": "0:00"
+        }
+    },
+    "webui": {
+        "desc": "Web Interface",
+        "enabled": {
+            "desc": "Activated",
+            "type": "bool",
+            "value": true
+        },
+        "use_ssl": {
+            "desc": "Use HTTPS",
+            "type": "bool",
+            "value": false
+        },
+        "develop": {
+            "desc": "Development mode",
+            "type": "bool",
+            "value": false
+        },
+        "ssl_certfile": {
+            "desc": "SSL Certificate",
+            "type": "file",
+            "value": "/root/.pyload/data/ssl.crt"
+        },
+        "ssl_keyfile": {
+            "desc": "SSL Key",
+            "type": "file",
+            "value": "/root/.pyload/data/ssl.key"
+        },
+        "ssl_certchain": {
+            "desc": "CA's intermediate certificate bundle (optional)",
+            "type": "file",
+            "value": ""
+        },
+        "host": {
+            "desc": "IP address",
+            "type": "ip",
+            "value": "10.0.163.75"
+        },
+        "port": {
+            "desc": "Port",
+            "type": "int",
+            "value": 8000
+        },
+        "theme": {
+            "desc": "Theme",
+            "type": "Default;modern;pyplex",
+            "value": "pyplex",
+            "list": [
+                "Default",
+                "modern",
+                "pyplex"
+            ]
+        },
+        "autologin": {
+            "desc": "Skip login if single user",
+            "type": "bool",
+            "value": false
+        },
+        "prefix": {
+            "desc": "Path prefix",
+            "type": "str",
+            "value": ""
+        },
+        "session_lifetime": {
+            "desc": "Session lifetime (minutes)",
+            "type": "int",
+            "value": 44640
+        }
+    },
+    "proxy": {
+        "desc": "Proxy",
+        "enabled": {
+            "desc": "Activated",
+            "type": "bool",
+            "value": false
+        },
+        "host": {
+            "desc": "IP address",
+            "type": "ip",
+            "value": "localhost"
+        },
+        "port": {
+            "desc": "Port",
+            "type": "int",
+            "value": 7070
+        },
+        "type": {
+            "desc": "Protocol",
+            "type": "http;https;socks4;socks5",
+            "value": "http",
+            "list": [
+                "http",
+                "https",
+                "socks4",
+                "socks5"
+            ]
+        },
+        "socks_resolve_dns": {
+            "desc": "Enable DNS resolution through SOCKS proxy",
+            "type": "bool",
+            "value": false
+        },
+        "username": {
+            "desc": "Username",
+            "type": "str",
+            "value": ""
+        },
+        "password": {
+            "desc": "Password",
+            "type": "password",
+            "value": ""
+        }
+    },
+    "log": {
+        "desc": "Log",
+        "console": {
+            "desc": "Print log to console",
+            "type": "bool",
+            "value": true
+        },
+        "console_color": {
+            "desc": "Colorize console",
+            "type": "bool",
+            "value": false
+        },
+        "syslog": {
+            "desc": "Sent log to syslog",
+            "type": "bool",
+            "value": false
+        },
+        "syslog_location": {
+            "desc": "Syslog location",
+            "type": "local;remote",
+            "value": "local",
+            "list": [
+                "local",
+                "remote"
+            ]
+        },
+        "syslog_folder": {
+            "desc": "Syslog local folder",
+            "type": "folder",
+            "value": ""
+        },
+        "syslog_host": {
+            "desc": "Syslog remote IP address",
+            "type": "ip",
+            "value": "localhost"
+        },
+        "syslog_port": {
+            "desc": "Syslog remote port",
+            "type": "int",
+            "value": 514
+        },
+        "filelog": {
+            "desc": "Save log to file",
+            "type": "bool",
+            "value": true
+        },
+        "filelog_size": {
+            "desc": "Maximum file size (in KiB)",
+            "type": "int",
+            "value": 5120
+        },
+        "filelog_folder": {
+            "desc": "Log file folder",
+            "type": "folder",
+            "value": ""
+        },
+        "filelog_entries": {
+            "desc": "Maximum log files",
+            "type": "int",
+            "value": 10
+        },
+        "filelog_rotate": {
+            "desc": "Log rotate",
+            "type": "bool",
+            "value": true
+        }
+    }
+}

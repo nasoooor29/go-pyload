@@ -1,0 +1,23 @@
+{
+    "bot": {
+        "name": "bot",
+        "email": "",
+        "role": 0,
+        "permission": 0,
+        "template_name": "default"
+    },
+    "pyload": {
+        "name": "pyload",
+        "email": "",
+        "role": 0,
+        "permission": 0,
+        "template_name": "default"
+    },
+    "weak": {
+        "name": "weak",
+        "email": "",
+        "role": 1,
+        "permission": 4,
+        "template_name": "default"
+    }
+}

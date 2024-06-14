@@ -1,0 +1,23 @@
+{
+    "_permanent": true,
+    "authenticated": true,
+    "id": 1,
+    "name": "pyload",
+    "role": 0,
+    "perms": 0,
+    "template": "default",
+    "_flashes": [
+        [
+            "message",
+            "Logged in successfully"
+        ],
+        [
+            "message",
+            "Logged in successfully"
+        ],
+        [
+            "message",
+            "Logged in successfully"
+        ]
+    ]
+}

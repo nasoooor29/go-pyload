@@ -1,0 +1,12 @@
+{
+    "code-runner.customCommand": "clear; go run runner/main.go",
+    "cSpell.words": [
+        "apng",
+        "ddduck",
+        "gopyload",
+        "KHTML",
+        "Pyload",
+        "userdata",
+        "webp"
+    ]
+}
